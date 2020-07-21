@@ -27,9 +27,9 @@ private final UserInfoRepository userInfoRepository;
 
     String password = userInfo.getPassword();
     String encodedPassword = new BCryptPasswordEncoder().encode(password);
-//        String hashedPassword = hashData.get_SHA_512_SecurePassword(password);
     System.out.println("hello");
-	String fullname = userInfo.getFullname();
+	String hashedPassword = hashData.get_SHA_512_SecurePassword(password);
+    String fullname = userInfo.getFullname();
     userInfoRepository.save(new UserInfo(username, encodedPassword, fullname));
     return true;
   }
